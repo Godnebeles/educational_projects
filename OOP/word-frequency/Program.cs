@@ -21,14 +21,14 @@ namespace word_frequency
         {
             Dictionary<string, int> wordsInfo = new Dictionary<string, int>();
 
-            string[] words = text.Split(new char[] { ' ', '\t', ':', '?', '!', '.', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = text.ToLower().Split(new char[] { ' ', '\t', ':', '?', '!', '.', ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 0; i < words.Length; i++)
+            foreach(var word in words)
             {
-                if (wordsInfo.ContainsKey(words[i].ToLower()))
-                    wordsInfo[words[i].ToLower()] = wordsInfo[words[i].ToLower()] + 1;
+                if (wordsInfo.ContainsKey(word))
+                    wordsInfo[word] = wordsInfo[word] + 1;
                 else
-                    wordsInfo.Add(words[i].ToLower(), 1);
+                    wordsInfo.Add(word, 1);
             }
 
             return wordsInfo;

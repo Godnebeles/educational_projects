@@ -77,7 +77,6 @@ namespace linked_list
 
         public void RemoveAt(int index)
         {
-
             if (index == 0)
             {
                 head = head.nextNode;
@@ -122,6 +121,7 @@ namespace linked_list
                 counter++;
             }
             return currentNode;
+            
         }
 
 

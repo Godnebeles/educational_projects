@@ -1,0 +1,16 @@
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/employee-birthday.csproj.AssemblyReference.cache
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/employee-birthday.GeneratedMSBuildEditorConfig.editorconfig
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/employee-birthday.AssemblyInfoInputs.cache
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/employee-birthday.AssemblyInfo.cs
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/employee-birthday.csproj.CoreCompileInputs.cache
+/home/intern/educational_projects/OOP/employee-birthday/bin/Debug/net5.0/employee-birthday
+/home/intern/educational_projects/OOP/employee-birthday/bin/Debug/net5.0/employee-birthday.deps.json
+/home/intern/educational_projects/OOP/employee-birthday/bin/Debug/net5.0/employee-birthday.runtimeconfig.json
+/home/intern/educational_projects/OOP/employee-birthday/bin/Debug/net5.0/employee-birthday.runtimeconfig.dev.json
+/home/intern/educational_projects/OOP/employee-birthday/bin/Debug/net5.0/employee-birthday.dll
+/home/intern/educational_projects/OOP/employee-birthday/bin/Debug/net5.0/ref/employee-birthday.dll
+/home/intern/educational_projects/OOP/employee-birthday/bin/Debug/net5.0/employee-birthday.pdb
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/employee-birthday.dll
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/ref/employee-birthday.dll
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/employee-birthday.pdb
+/home/intern/educational_projects/OOP/employee-birthday/obj/Debug/net5.0/employee-birthday.genruntimeconfig.cache

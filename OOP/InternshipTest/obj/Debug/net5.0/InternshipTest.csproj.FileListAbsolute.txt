@@ -1,0 +1,16 @@
+/home/intern/educational_projects/OOP/InternshipTest/bin/Debug/net5.0/InternshipTest
+/home/intern/educational_projects/OOP/InternshipTest/bin/Debug/net5.0/InternshipTest.deps.json
+/home/intern/educational_projects/OOP/InternshipTest/bin/Debug/net5.0/InternshipTest.runtimeconfig.json
+/home/intern/educational_projects/OOP/InternshipTest/bin/Debug/net5.0/InternshipTest.runtimeconfig.dev.json
+/home/intern/educational_projects/OOP/InternshipTest/bin/Debug/net5.0/InternshipTest.dll
+/home/intern/educational_projects/OOP/InternshipTest/bin/Debug/net5.0/ref/InternshipTest.dll
+/home/intern/educational_projects/OOP/InternshipTest/bin/Debug/net5.0/InternshipTest.pdb
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/InternshipTest.csproj.AssemblyReference.cache
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/InternshipTest.GeneratedMSBuildEditorConfig.editorconfig
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/InternshipTest.AssemblyInfoInputs.cache
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/InternshipTest.AssemblyInfo.cs
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/InternshipTest.csproj.CoreCompileInputs.cache
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/InternshipTest.dll
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/ref/InternshipTest.dll
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/InternshipTest.pdb
+/home/intern/educational_projects/OOP/InternshipTest/obj/Debug/net5.0/InternshipTest.genruntimeconfig.cache
