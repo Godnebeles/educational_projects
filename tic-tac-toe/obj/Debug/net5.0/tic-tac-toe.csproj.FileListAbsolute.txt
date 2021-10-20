@@ -1,0 +1,16 @@
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/tic-tac-toe.csproj.AssemblyReference.cache
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/tic-tac-toe.GeneratedMSBuildEditorConfig.editorconfig
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/tic-tac-toe.AssemblyInfoInputs.cache
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/tic-tac-toe.AssemblyInfo.cs
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/tic-tac-toe.csproj.CoreCompileInputs.cache
+/home/intern/educational_projects/tic-tac-toe/bin/Debug/net5.0/tic-tac-toe
+/home/intern/educational_projects/tic-tac-toe/bin/Debug/net5.0/tic-tac-toe.deps.json
+/home/intern/educational_projects/tic-tac-toe/bin/Debug/net5.0/tic-tac-toe.runtimeconfig.json
+/home/intern/educational_projects/tic-tac-toe/bin/Debug/net5.0/tic-tac-toe.runtimeconfig.dev.json
+/home/intern/educational_projects/tic-tac-toe/bin/Debug/net5.0/tic-tac-toe.dll
+/home/intern/educational_projects/tic-tac-toe/bin/Debug/net5.0/ref/tic-tac-toe.dll
+/home/intern/educational_projects/tic-tac-toe/bin/Debug/net5.0/tic-tac-toe.pdb
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/tic-tac-toe.dll
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/ref/tic-tac-toe.dll
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/tic-tac-toe.pdb
+/home/intern/educational_projects/tic-tac-toe/obj/Debug/net5.0/tic-tac-toe.genruntimeconfig.cache

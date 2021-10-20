@@ -1,0 +1,16 @@
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/classes.csproj.AssemblyReference.cache
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/classes.GeneratedMSBuildEditorConfig.editorconfig
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/classes.AssemblyInfoInputs.cache
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/classes.AssemblyInfo.cs
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/classes.csproj.CoreCompileInputs.cache
+/home/intern/educational_projects/OOP/classes/bin/Debug/net5.0/classes
+/home/intern/educational_projects/OOP/classes/bin/Debug/net5.0/classes.deps.json
+/home/intern/educational_projects/OOP/classes/bin/Debug/net5.0/classes.runtimeconfig.json
+/home/intern/educational_projects/OOP/classes/bin/Debug/net5.0/classes.runtimeconfig.dev.json
+/home/intern/educational_projects/OOP/classes/bin/Debug/net5.0/classes.dll
+/home/intern/educational_projects/OOP/classes/bin/Debug/net5.0/ref/classes.dll
+/home/intern/educational_projects/OOP/classes/bin/Debug/net5.0/classes.pdb
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/classes.dll
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/ref/classes.dll
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/classes.pdb
+/home/intern/educational_projects/OOP/classes/obj/Debug/net5.0/classes.genruntimeconfig.cache

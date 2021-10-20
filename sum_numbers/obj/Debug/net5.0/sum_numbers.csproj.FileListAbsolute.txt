@@ -1,0 +1,16 @@
+/home/intern/educational_projects/sum_numbers/bin/Debug/net5.0/sum_numbers
+/home/intern/educational_projects/sum_numbers/bin/Debug/net5.0/sum_numbers.deps.json
+/home/intern/educational_projects/sum_numbers/bin/Debug/net5.0/sum_numbers.runtimeconfig.json
+/home/intern/educational_projects/sum_numbers/bin/Debug/net5.0/sum_numbers.runtimeconfig.dev.json
+/home/intern/educational_projects/sum_numbers/bin/Debug/net5.0/sum_numbers.dll
+/home/intern/educational_projects/sum_numbers/bin/Debug/net5.0/ref/sum_numbers.dll
+/home/intern/educational_projects/sum_numbers/bin/Debug/net5.0/sum_numbers.pdb
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/sum_numbers.csproj.AssemblyReference.cache
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/sum_numbers.GeneratedMSBuildEditorConfig.editorconfig
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/sum_numbers.AssemblyInfoInputs.cache
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/sum_numbers.AssemblyInfo.cs
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/sum_numbers.csproj.CoreCompileInputs.cache
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/sum_numbers.dll
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/ref/sum_numbers.dll
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/sum_numbers.pdb
+/home/intern/educational_projects/sum_numbers/obj/Debug/net5.0/sum_numbers.genruntimeconfig.cache

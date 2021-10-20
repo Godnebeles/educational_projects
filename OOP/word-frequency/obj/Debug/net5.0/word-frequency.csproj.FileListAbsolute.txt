@@ -1,0 +1,16 @@
+/home/intern/educational_projects/OOP/word-frequency/bin/Debug/net5.0/word-frequency
+/home/intern/educational_projects/OOP/word-frequency/bin/Debug/net5.0/word-frequency.deps.json
+/home/intern/educational_projects/OOP/word-frequency/bin/Debug/net5.0/word-frequency.runtimeconfig.json
+/home/intern/educational_projects/OOP/word-frequency/bin/Debug/net5.0/word-frequency.runtimeconfig.dev.json
+/home/intern/educational_projects/OOP/word-frequency/bin/Debug/net5.0/word-frequency.dll
+/home/intern/educational_projects/OOP/word-frequency/bin/Debug/net5.0/ref/word-frequency.dll
+/home/intern/educational_projects/OOP/word-frequency/bin/Debug/net5.0/word-frequency.pdb
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/word-frequency.csproj.AssemblyReference.cache
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/word-frequency.GeneratedMSBuildEditorConfig.editorconfig
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/word-frequency.AssemblyInfoInputs.cache
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/word-frequency.AssemblyInfo.cs
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/word-frequency.csproj.CoreCompileInputs.cache
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/word-frequency.dll
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/ref/word-frequency.dll
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/word-frequency.pdb
+/home/intern/educational_projects/OOP/word-frequency/obj/Debug/net5.0/word-frequency.genruntimeconfig.cache

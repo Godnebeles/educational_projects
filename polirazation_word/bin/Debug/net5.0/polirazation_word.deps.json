@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "polirazation_word/1.0.0": {
+        "runtime": {
+          "polirazation_word.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "polirazation_word/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
