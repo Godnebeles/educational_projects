@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using InternshipTest.Person;
 using InternshipTest.Institution;
 using InternshipTest.Institution.InterLink;
@@ -9,15 +10,34 @@ namespace InternshipTest
     {
         static void Main(string[] args)
         {
-            var s = new Student("Alex");
+            var s1 = new Student("Andrew");
+            s1.SetKnowledge(new Knowledge(5));
+            var s2 = new Student("Sonya");
+            s2.SetKnowledge(new Knowledge(2));
+            var s3 = new Student("Viсtoria");
+            s3.SetKnowledge(new Knowledge(4));
+            var s4 = new Student("Liza");
+            s4.SetKnowledge(new Knowledge(4));
+
             University university = new University("CH.U.I.");
-            university.AddStudent(new Student("Andrew Kostenko"));
-            university.AddStudent(new Student("Julia Veselkina"));
-            university.AddStudent(new Student("Maria Perechrest"));
+            university.AddStudent(s1);
+            university.AddStudent(s2);
+            university.AddStudent(s3);
+            university.AddStudent(s4);
 
             Internship internship = new Internship("Interlink");
-            Console.WriteLine("List of internship's students:");
-            Console.WriteLine(internship.GetStudents());
+            internship.SetConditionLevel(NecessaryLevel.middle);
+            internship.AddStudents(university);
+
+            Console.WriteLine("List of internship's students: ");
+            List<Student> students = internship.GetStudents();
+            foreach(var student in students)
+            {
+                Console.WriteLine(student);
+            }
+           
+
+            
         }
     }
 }
