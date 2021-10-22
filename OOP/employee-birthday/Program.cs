@@ -36,34 +36,30 @@ namespace employee_birthday
 
         }
 
+        public static Dictionary<int, List<Employee>> GetSortedMonthesEmptyDict(List<Employee> employees, int monthCount)
+        {
+            
+            employees.Sort();
+            Dictionary<int, List<Employee>> dictionarySetMonthes = new Dictionary<int, List<Employee>>();
+
+            DateTime currentMonth = DateTime.Now;
+            for(int i = 0; i <= monthCount; i++)
+            {
+                dictionarySetMonthes.Add(currentMonth.AddMonths(i).Month, new List<Employee>());
+            }
+        
+            return dictionarySetMonthes;
+        }
 
         public static Dictionary<int, List<Employee>> GetEmployeesMonthes(List<Employee> employees, int monthCount)
         {
-            Dictionary<int, List<Employee>> sortedEmployes = new Dictionary<int, List<Employee>>();
-
-            employees.Sort();
+            Dictionary<int, List<Employee>> sortedEmployes = GetSortedMonthesEmptyDict(employees, monthCount);      
 
             foreach (var employee in employees)
             {
-                for (int i = 0; i <= monthCount ; i++)
-                {
-                    int currentEmployeeMonth = employee.Birthday.Month;
-                    int currentMonth = DateTime.Now.AddMonths(i).Month;
-                    if (currentMonth == currentEmployeeMonth)
-                    {
-                        if (sortedEmployes.ContainsKey(currentEmployeeMonth))
-                        {
-                            sortedEmployes[currentEmployeeMonth].Add(employee);
-                        }
-                        else
-                        {
-                            List<Employee> tempEmployee = new List<Employee>();
-                            tempEmployee.Add(employee);
-                            sortedEmployes.Add(currentEmployeeMonth, tempEmployee);
-                        }
-                    }
-                }
-
+                int currentMonth = employee.Birthday.Month;
+                if(sortedEmployes.ContainsKey(currentMonth))
+                    sortedEmployes[currentMonth].Add(employee);
             }
 
             return sortedEmployes;

@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/intern/educational_projects/OOP/employee-birthday/employee-birthday.csproj": {}
+    "D:\\Programming\\Interlink\\educational_projects\\OOP\\employee-birthday\\employee-birthday.csproj": {}
   },
   "projects": {
-    "/home/intern/educational_projects/OOP/employee-birthday/employee-birthday.csproj": {
+    "D:\\Programming\\Interlink\\educational_projects\\OOP\\employee-birthday\\employee-birthday.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/intern/educational_projects/OOP/employee-birthday/employee-birthday.csproj",
+        "projectUniqueName": "D:\\Programming\\Interlink\\educational_projects\\OOP\\employee-birthday\\employee-birthday.csproj",
         "projectName": "employee-birthday",
-        "projectPath": "/home/intern/educational_projects/OOP/employee-birthday/employee-birthday.csproj",
-        "packagesPath": "/home/intern/.nuget/packages/",
-        "outputPath": "/home/intern/educational_projects/OOP/employee-birthday/obj/",
+        "projectPath": "D:\\Programming\\Interlink\\educational_projects\\OOP\\employee-birthday\\employee-birthday.csproj",
+        "packagesPath": "C:\\Users\\Nyashuka\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\Interlink\\educational_projects\\OOP\\employee-birthday\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/intern/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Nyashuka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
