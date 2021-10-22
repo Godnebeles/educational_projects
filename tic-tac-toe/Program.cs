@@ -7,7 +7,7 @@ namespace tic_tac_toe
         private GameStatus status = GameStatus.playing;
         static void Main(string[] args)
         {
-            Game ticTacToe = new Game(3, 'X', 'O');
+            Game ticTacToe = new Game(3, '1', '%');
             ticTacToe.PrintConsoleField();
             
             ticTacToe.MakeStep(0, 0);

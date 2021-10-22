@@ -23,6 +23,7 @@ namespace tic_tac_toe
         private char player1;
         private char player2;
         public PlayerStep currentPlayer;
+        
 
         public Players(char player1, char player2)
         {
@@ -55,6 +56,7 @@ namespace tic_tac_toe
         private Players players;
 
         private GameStatus gameStatus = GameStatus.playing;
+        int currentStep = 0;
 
         public Game(int fieldSize, char player1, char player2)
         {
@@ -148,6 +150,7 @@ namespace tic_tac_toe
 
             if (EmptyCell(gameField[x, y]))
             {
+                gameField[x, y] = GetCurrentPlayer();
                 if (players.currentPlayer == PlayerStep.player1)
                 {
                     players.CurrentPlayer = PlayerStep.player2;
@@ -155,8 +158,7 @@ namespace tic_tac_toe
                 else
                 {
                     players.currentPlayer = PlayerStep.player1;
-                }
-                gameField[x, y] = GetCurrentPlayer();
+                }             
             }
             else
             {
@@ -170,6 +172,11 @@ namespace tic_tac_toe
             {
                 gameStatus = GameStatus.wonPlayer2;
             }
+            
+            if(currentStep == gameField.GetLength(0) * gameField.GetLength(0))
+                gameStatus = GameStatus.draw;
+            
+            currentStep++;
         }
 
     }
