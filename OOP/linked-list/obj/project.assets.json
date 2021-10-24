@@ -8,24 +8,31 @@
     "net5.0": []
   },
   "packageFolders": {
-    "/home/intern/.nuget/packages/": {}
+    "C:\\Users\\Nyashuka\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/intern/educational_projects/OOP/linked-list/linked-list.csproj",
+      "projectUniqueName": "d:\\Programming\\Interlink\\educational_projects\\OOP\\linked-list\\linked-list.csproj",
       "projectName": "linked-list",
-      "projectPath": "/home/intern/educational_projects/OOP/linked-list/linked-list.csproj",
-      "packagesPath": "/home/intern/.nuget/packages/",
-      "outputPath": "/home/intern/educational_projects/OOP/linked-list/obj/",
+      "projectPath": "d:\\Programming\\Interlink\\educational_projects\\OOP\\linked-list\\linked-list.csproj",
+      "packagesPath": "C:\\Users\\Nyashuka\\.nuget\\packages\\",
+      "outputPath": "d:\\Programming\\Interlink\\educational_projects\\OOP\\linked-list\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/intern/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Nyashuka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -58,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -10,7 +10,7 @@ namespace linked_list
 
             for (int i = 0; i < 10; i++)
             {
-                list.Add(i);
+                list.AddHead(i);
             }
             
             System.Console.WriteLine("Before edit");

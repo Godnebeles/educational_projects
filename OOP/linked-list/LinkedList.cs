@@ -39,28 +39,28 @@ namespace linked_list
         {
             ListNode newNode = new ListNode(value);
 
-            if (head == null)
-            {
+            // if (head == null)
+            // {
+            //     head = newNode;
+            // }
+            // else
+            // {
+            //     ListNode currentNode = this.head;
+            //     while (currentNode.nextNode != null)
+            //     {
+            //         currentNode = currentNode.nextNode;
+            //     }
+            //     currentNode.nextNode = newNode;
+            // }
+
+            if (tail == null)
+            { 
                 head = newNode;
             }
             else
-            {
-                ListNode currentNode = this.head;
-                while (currentNode.nextNode != null)
-                {
-                    currentNode = currentNode.nextNode;
-                }
-                currentNode.nextNode = newNode;
+            { 
+                tail.nextNode = newNode;
             }
-
-            //if (tail == null)
-            //{ // empty list
-            //    head = newNode;
-            //}
-            //else
-            //{ // has at least one element
-            //    tail.nextNode = newNode;
-            //}
 
             tail = newNode;
             size++;
@@ -69,9 +69,15 @@ namespace linked_list
         public void AddHead(T value)
         {
             ListNode newNode = new ListNode(value);
-            newNode.nextNode = head;
+            if (head == null)
+            {
+                tail = newNode;
+            }
+            else
+            {
+                newNode.nextNode = head;
+            }
             head = newNode;
-
             size++;
         }
 
@@ -84,7 +90,7 @@ namespace linked_list
             else
             {
                 ListNode previousNode = FindNode(index - 1);
-                ListNode toDelete  = previousNode.nextNode;
+                ListNode toDelete = previousNode.nextNode;
 
                 previousNode.nextNode = toDelete.nextNode;
                 toDelete = null;
@@ -110,7 +116,7 @@ namespace linked_list
             if (index >= size || index < 0)
                 throw new Exception("IndexOutOfRange");
 
-            if(index == size-1)
+            if (index == size - 1)
                 return tail;
 
             int counter = 0;
@@ -121,7 +127,7 @@ namespace linked_list
                 counter++;
             }
             return currentNode;
-            
+
         }
 
 
