@@ -1,0 +1,16 @@
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/bin/Debug/net5.0/tcpListener
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/bin/Debug/net5.0/tcpListener.deps.json
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/bin/Debug/net5.0/tcpListener.runtimeconfig.json
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/bin/Debug/net5.0/tcpListener.runtimeconfig.dev.json
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/bin/Debug/net5.0/tcpListener.dll
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/bin/Debug/net5.0/ref/tcpListener.dll
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/bin/Debug/net5.0/tcpListener.pdb
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/tcpListener.csproj.AssemblyReference.cache
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/tcpListener.GeneratedMSBuildEditorConfig.editorconfig
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/tcpListener.AssemblyInfoInputs.cache
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/tcpListener.AssemblyInfo.cs
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/tcpListener.csproj.CoreCompileInputs.cache
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/tcpListener.dll
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/ref/tcpListener.dll
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/tcpListener.pdb
+/home/intern/git_projs/educational_projects/asp.net/tcpListener/obj/Debug/net5.0/tcpListener.genruntimeconfig.cache
