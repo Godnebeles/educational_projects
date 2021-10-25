@@ -1,3 +1,4 @@
+
 #!/bin/bash
 echo "Enter directory name"
 read gitrepo
@@ -19,10 +20,11 @@ echo "GitHub user.email"
 read email
 
 echo "* text=auto" > .gitattributes
+
 git init .
 git config --global user.email "$name"
 git config --global user.name "$email"
-touch .gitignore
+dot net new gitignore
 git add --all
 git commit -m "initial setup"
 
