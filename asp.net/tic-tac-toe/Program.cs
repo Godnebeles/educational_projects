@@ -18,23 +18,6 @@ namespace tic_tac_toe
             
             server.CreateGame(args[0], int.Parse(args[1]));
             
-
-            // Game ticTacToe = new Game(3, '1', '%');
-            // ticTacToe.PrintConsoleField();
-
-            // ticTacToe.MakeStep(0, 0);
-            // ticTacToe.PrintConsoleField();
-            // System.Console.WriteLine(ticTacToe.GetGameStatus());
-            // ticTacToe.MakeStep(1, 0);
-            // ticTacToe.PrintConsoleField();
-            // ticTacToe.MakeStep(0, 1);
-            // ticTacToe.PrintConsoleField();
-            // ticTacToe.MakeStep(2, 0);
-            // ticTacToe.PrintConsoleField();
-            // ticTacToe.MakeStep(0, 2);
-            // ticTacToe.PrintConsoleField();
-            // System.Console.WriteLine(ticTacToe.GetGameStatus());
-            // ticTacToe.MakeStep(0, 2); 
         }
 
     

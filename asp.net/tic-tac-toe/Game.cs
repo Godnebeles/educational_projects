@@ -3,61 +3,24 @@ using System.Text;
 
 namespace tic_tac_toe
 {
-
-    public enum GameStatus
-    {
-        playing,
-        wonPlayer1,
-        wonPlayer2,
-        draw
-    }
-
-    public enum PlayerStep
-    {
-        player1,
-        player2
-    }
-
-    struct Player
-    {
-        private char player1;
-        private char player2;
-        public PlayerStep currentPlayer;
-        
-        public Player(char player1, char player2)
-        {
-            currentPlayer = PlayerStep.player1;
-            this.player1 = player1;
-            this.player2 = player2;
-        }
-
-        public char Player1 { get { return player1; } }
-        public char Player2 { get { return player2; } }
-
-        public PlayerStep CurrentPlayer
-        {
-            get { return currentPlayer; }
-            set { currentPlayer = value; }
-        }
-    }
-    
-
     public class Game
     {
         private char[,] gameField;
 
-        private Player players;
-
+        private Player player1;
+        private Player player2;
+        private Player currentPlayer;
         private GameStatus gameStatus = GameStatus.playing;
         int currentStep = 0;
 
-        public Game(int fieldSize, char player1, char player2)
+        public Game(int fieldSize, Player player1, Player player2)
         {
             gameField = new char[fieldSize, fieldSize];
-            players = new Player(player1, player2);
+            this.player1 = player1;
+            this.player2 = player2;
+            this.currentPlayer = player1;
         }
-
-
+        
         public void PrintConsoleField(Client player)
         {
             for (int i = 0; i < gameField.GetLength(0); i++)
@@ -97,22 +60,10 @@ namespace tic_tac_toe
             return false;
         }
 
-        
-        public char GetCurrentPlayer()
-        {
-            if (players.currentPlayer == PlayerStep.player1)
-            {
-                return players.Player1;
-            }
-            else
-            {
-                return players.Player2;
-            }
-        }
 
-        public PlayerStep GetCurrentPlayerStep()
+        public Player GetCurrentPlayer()
         {
-            return players.CurrentPlayer;
+            return currentPlayer;
         }
 
         private bool EmptyCell(char elem)
@@ -125,26 +76,23 @@ namespace tic_tac_toe
 
         public bool GameIsEnd()
         {
-            return gameStatus == GameStatus.draw || gameStatus == GameStatus.wonPlayer1 ||
-                   gameStatus == GameStatus.wonPlayer2;
+            return gameStatus != GameStatus.playing;
         }
-        
+
         public string GetGameStatus()
         {
-            if (gameStatus == GameStatus.wonPlayer1)
-                return "Game ended. " + players.Player1 + " is Winner";
-            else if (gameStatus == GameStatus.wonPlayer2)
-                return "Game ended. " + players.Player2 + " is Winner";
+            if (gameStatus == GameStatus.playing)
+                return "Game is continue... Step player's " + currentPlayer.Name;
             else if (gameStatus == GameStatus.draw)
-                return "Game ended with draw";
+                return "Game ended with draw...";
             else
-                return "Game is continue";
+                return "Game ended. " + currentPlayer.Name + " is Winner";
         }
 
 
         public void MakeStep(int x, int y)
         {
-            if (gameStatus == GameStatus.wonPlayer1 || gameStatus == GameStatus.wonPlayer2 || gameStatus == GameStatus.draw)
+            if (gameStatus != GameStatus.playing)
             {
                 GetGameStatus();
                 throw new Exception(GetGameStatus());
@@ -152,32 +100,34 @@ namespace tic_tac_toe
 
             if (EmptyCell(gameField[x, y]))
             {
-                gameField[x, y] = GetCurrentPlayer();
-                if (players.currentPlayer == PlayerStep.player1)
+                gameField[x, y] = currentPlayer.PlayerSymbol;
+                if (currentPlayer.PlayerIdentificator == player1.PlayerIdentificator)
                 {
-                    players.CurrentPlayer = PlayerStep.player2;
+                    currentPlayer = player2;
                 }
                 else
                 {
-                    players.currentPlayer = PlayerStep.player1;
-                }             
+                    currentPlayer = player1;
+                }
             }
             else
             {
                 throw new Exception("This cell is lock");
             }
-            if (ChekWinner(players.Player1))
+            if (ChekWinner(player1.PlayerSymbol))
             {
                 gameStatus = GameStatus.wonPlayer1;
+                currentPlayer = player1;
             }
-            else if (ChekWinner(players.Player2))
+            else if (ChekWinner(player2.PlayerSymbol))
             {
                 gameStatus = GameStatus.wonPlayer2;
+                currentPlayer = player2;
             }
-            
-            if(currentStep == gameField.GetLength(0) * gameField.GetLength(0))
+
+            if (currentStep == gameField.GetLength(0) * gameField.GetLength(0))
                 gameStatus = GameStatus.draw;
-            
+
             currentStep++;
         }
 
