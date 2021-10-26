@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qPENgIs7f8NS7PXjmL94yiixY905Fz+ksYXZY9z/HJCJkEVJ/y7+230pWNa0NZgIkL9pxeZnzHvLTa7yYL7STg==",
+  "dgSpecHash": "51pfyyCBjOfiZl+7+hZWiRqbn2CiHgG/4sbmhuHOVbvHrtBnfXdJP/vT1F+NEDCM6hfXx3WeKtaxm/EReTFc/A==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\Interlink\\educational_projects\\asp.net\\tic-tac-toe\\tic-tac-toe.csproj",
+  "projectFilePath": "/home/intern/git_projs/educational_projects/asp.net/tic-tac-toe/tic-tac-toe.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
