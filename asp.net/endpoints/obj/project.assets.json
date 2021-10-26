@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/intern/git_projs/educational_projects/asp.net/tic-tac-toe/tic-tac-toe.csproj",
-      "projectName": "tic-tac-toe",
-      "projectPath": "/home/intern/git_projs/educational_projects/asp.net/tic-tac-toe/tic-tac-toe.csproj",
+      "projectUniqueName": "/home/intern/git_projs/educational_projects/asp.net/endpoints/endpoints.csproj",
+      "projectName": "endpoints",
+      "projectPath": "/home/intern/git_projs/educational_projects/asp.net/endpoints/endpoints.csproj",
       "packagesPath": "/home/intern/.nuget/packages/",
-      "outputPath": "/home/intern/git_projs/educational_projects/asp.net/tic-tac-toe/obj/",
+      "outputPath": "/home/intern/git_projs/educational_projects/asp.net/endpoints/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/intern/.nuget/NuGet/NuGet.Config"
@@ -54,6 +54,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
