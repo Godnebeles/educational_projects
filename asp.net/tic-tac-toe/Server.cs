@@ -28,20 +28,13 @@ namespace tic_tac_toe
                     TcpClient client = server.AcceptTcpClient();
                     Console.WriteLine("Connected!");
 
-
-                    NetworkStream stream = client.GetStream();
-                    StreamReader reader = new StreamReader(stream);
-                    StreamWriter writer = new StreamWriter(stream);
-                    writer.AutoFlush = true;
-
                     clients[i] = new Client(client);
 
-                    writer.WriteLine("Your name: ");
-                    writer.WriteLine("Write symbol: ");
+                    clients[i].writer.WriteLine("Your name: ");
+                    namePlayers[i] = clients[i].reader.ReadLine();
 
-                    namePlayers[i] = reader.ReadLine();
-                    charSymbols[i] = Convert.ToChar(reader.ReadLine());
-
+                    clients[i].writer.WriteLine("Write symbol: ");
+                    charSymbols[i] = Convert.ToChar(clients[i].reader.ReadLine());
                 }
                 catch (Exception e)
                 {
