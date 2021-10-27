@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "tic-tac-toe": {
+      "commandName": "Project",
+      "commandLineArgs": "0.0.0.0 13123"
+    }
+  }
+}

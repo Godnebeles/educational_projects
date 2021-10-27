@@ -34,7 +34,12 @@ namespace tic_tac_toe
                     namePlayers[i] = clients[i].reader.ReadLine();
 
                     clients[i].writer.WriteLine("Write symbol: ");
+                                    
                     charSymbols[i] = Convert.ToChar(clients[i].reader.ReadLine());
+                    if (charSymbols[0] == charSymbols[1])
+                    {
+                        throw new Exception("Player entered bad symbol...");
+                    }
                 }
                 catch (Exception e)
                 {
@@ -68,7 +73,7 @@ namespace tic_tac_toe
                 try
                 {
                     Client currentPlayer = GetCurrentClient(game.GetCurrentPlayer().PlayerIdentificator);
-                    Client waitingPlayer = GetCurrentClient(game.GetCurrentPlayer().PlayerIdentificator);
+                    //Client waitingPlayer = GetCurrentClient(game.GetCurrentPlayer().PlayerIdentificator);
 
                     PrintFieldAllPlayers();
 
