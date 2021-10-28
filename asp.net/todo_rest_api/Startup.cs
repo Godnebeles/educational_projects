@@ -25,7 +25,6 @@ namespace todo_rest_api
 
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSingleton<TasksListService>();
             services.AddSwaggerGen(c =>

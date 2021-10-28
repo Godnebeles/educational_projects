@@ -1,10 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-//using todo_rest_api.Models;
 
 namespace todo_rest_api.Controllers
 {
@@ -12,53 +8,42 @@ namespace todo_rest_api.Controllers
     [ApiController]
     public class TodoListController : ControllerBase
     {
-        private TasksListService todoItemService;
+        private TasksListService service;
+
 
         public TodoListController(TasksListService service)
         {
-            this.todoItemService = service;
+            this.service = service;
         }
 
-        [HttpGet("lists")]
-        public ActionResult<IEnumerable<TodoList>> GetTodoItems()
+
+        [HttpGet("")]
+        public ActionResult<IEnumerable<TodoList>> GetTodoItems(int listId)
         {
-            return todoItemService.GetAllLists();
+            return service.GetAllLists();
         }
 
-        [HttpGet("lists/{listId}/tasks")]
-        public ActionResult<TodoList> GetTodoItemById(int id)
+
+        [HttpGet("{listId}")]
+        public ActionResult<TodoList> GetTodoListById(int listId)
         {       
-            return todoItemService.GetById(id);
+            return service.GetTodoListById(listId);
         }
+
 
         [HttpPost("")]
-        public ActionResult<TodoList> CreateTodoItem(TodoList todoItem)
+        public ActionResult<TodoList> CreateTodoList(TodoList todoItem)
         {
-            todoItemService.Create(todoItem);
+            service.CreateTodoList(todoItem);
 
-            return Created($"api/todoitem/{todoItem.Id}", todoItem);
+            return Created($"api/todolist/{todoItem.Id}", todoItem);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult PutTodoItem(int id, TodoList todoItem)
-        {
-            todoItemService.PutById(id, todoItem);
-
-            return Ok();
-        }
-
-        [HttpPatch("{id}")]
-        public IActionResult PatchTodoItem(int id, TodoList todoItem)
-        {
-            todoItemService.PatchTaskById(id, todoItem);
-
-            return Ok();
-        }
 
         [HttpDelete("{id}")]
         public ActionResult<TodoList> DeleteTodoItemById(int id)
         {
-            todoItemService.DeleteById(id);
+            service.DeleteTodoListById(id);
 
             return Ok();
         }

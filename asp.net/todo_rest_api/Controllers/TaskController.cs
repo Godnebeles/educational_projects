@@ -7,43 +7,64 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace todo_rest_api.Controllers
 {
-    [Route("api/lists/{id}/tasks")]
+    [Route("api/tasks/")]
     [ApiController]
     public class TaskController : ControllerBase
     {
-        
-        public TaskController()
+        private TasksListService service;
+        public TaskController(TasksListService service)
         {
+            this.service = service;
         }
+
 
         [HttpGet("")]
         public ActionResult<IEnumerable<Task>> GetTasks()
         {
-            return new List<Task> { };
+            return service.GetAllTasks();
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<Task> GetTaskById(int id)
+
+        [HttpGet("{listId}/{id}")]
+        public ActionResult<Task> GetTaskById(int listId, int id)
         {
-            return null;
+            return service.GetTaskById(listId, id);
         }
 
-        [HttpPost("")]
-        public ActionResult<Task> PostTask(Task model)
+
+        [HttpPost("{listId}")]
+        public ActionResult<Task> PostTask(int listId, Task task)
         {
-            return null;
+            service.CreateTaskInList(listId, task);
+
+            return Ok();
         }
 
-        [HttpPut("{id}")]
-        public IActionResult PutTask(int id, Task model)
+
+        [HttpPut("{listId}/{id}")]
+        public IActionResult PutTask(int listid, int id, Task task)
         {
-            return NoContent();
+            service.PutTaskById(listid, id, task);
+
+            return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult<Task> DeleteTaskById(int id)
+
+        [HttpPatch("{listId}/{id}")]
+        public IActionResult PatchTask(int listId, int id, Task task)
         {
-            return null;
+            service.PatchTask(listId, id, task);
+
+            return Ok();
+        }
+
+
+        [HttpDelete("{listId}/{id}")]
+        public ActionResult<Task> DeleteTaskById(int listId, int id)
+        {
+            service.DeleteTask(listId, id);
+
+            return Ok();
         }
     }
 }

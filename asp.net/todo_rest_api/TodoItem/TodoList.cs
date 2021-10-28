@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace todo_rest_api
 {
@@ -9,6 +7,7 @@ namespace todo_rest_api
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public int LastTaskId { get; set; }
         public List<Task> Tasks = new List<Task>();
     }
 }
