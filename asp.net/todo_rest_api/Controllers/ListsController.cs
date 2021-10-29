@@ -6,12 +6,12 @@ namespace todo_rest_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TodoListController : ControllerBase
+    public class ListsController : ControllerBase
     {
         private TasksListService service;
 
 
-        public TodoListController(TasksListService service)
+        public ListsController(TasksListService service)
         {
             this.service = service;
         }
@@ -40,10 +40,10 @@ namespace todo_rest_api.Controllers
         }
 
 
-        [HttpDelete("{id}")]
-        public ActionResult<TodoList> DeleteTodoItemById(int id)
+        [HttpDelete("{listId}")]
+        public ActionResult<TodoList> DeleteTodoItemById(int listId)
         {
-            service.DeleteTodoListById(id);
+            service.DeleteTodoListById(listId);
 
             return Ok();
         }

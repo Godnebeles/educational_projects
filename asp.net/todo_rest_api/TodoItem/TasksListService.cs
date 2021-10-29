@@ -18,7 +18,7 @@ namespace todo_rest_api
                     Id = 2, Title = "Second standart data",
                     Tasks = new List<Task>()
                         {
-                           new Task() {Id = 2, Title = "Task 1, List 2"},
+                           new Task() {Id = 2, Title = "Task 2, List 2"},
                         }}
             };
 

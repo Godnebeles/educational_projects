@@ -7,34 +7,33 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace todo_rest_api.Controllers
 {
-    [Route("api/tasks/")]
+    [Route("api/lists/{listId}/tasks")]
     [ApiController]
-    public class TaskController : ControllerBase
+    public class ListsTasksController : ControllerBase
     {
         private TasksListService service;
 
 
-        public TaskController(TasksListService service)
+        public ListsTasksController(TasksListService service)
         {
             this.service = service;
         }
 
-
+        // TASKS NO QUERY
         [HttpGet]
-        public ActionResult<IEnumerable<Task>> GetTasks()
+        public ActionResult<List<Task>> GetTaskById(int listId)
         {
-            return service.GetAllTasks();
+            return service.GetTasksByListId(listId);
         }
-
 
         [HttpGet("{taskId}")]
-        public ActionResult<Task> GetTaskById(int taskId)
+        public ActionResult<List<Task>> GetTaskById(int listId, int taskId)
         {
-            return service.GetTaskById(taskId);
+            return service.GetTasksByListId(listId);
         }
 
 
-        [HttpPost("{listId}")]
+        [HttpPost]
         public ActionResult<Task> PostTask(int listId, Task task)
         {
             service.CreateTaskInList(listId, task);
@@ -44,7 +43,7 @@ namespace todo_rest_api.Controllers
 
 
         [HttpPut("{taskId}")]
-        public IActionResult PutTask(int taskId, Task task)
+        public IActionResult PutTask(int listId, int taskId, Task task)
         {
             service.PutTaskById(taskId, task);
 
@@ -53,7 +52,7 @@ namespace todo_rest_api.Controllers
 
 
         [HttpPatch("{taskId}")]
-        public IActionResult PatchTask(int taskId, Task task)
+        public IActionResult PatchTask(int listId, int taskId, Task task)
         {
             service.PatchTask(taskId, task);
 
@@ -62,7 +61,7 @@ namespace todo_rest_api.Controllers
 
 
         [HttpDelete("{taskId}")]
-        public ActionResult<Task> DeleteTaskById(int taskId)
+        public ActionResult<Task> DeleteTaskById(int listId, int taskId)
         {
             service.DeleteTask(taskId);
 
