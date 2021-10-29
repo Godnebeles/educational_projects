@@ -20,7 +20,7 @@ namespace todo_rest_api.Controllers
         }
 
 
-        [HttpGet("")]
+        [HttpGet("lists")]
         public ActionResult<IEnumerable<TodoList>> GetTodoItems()
         {
             return service.GetAllLists();
@@ -34,7 +34,7 @@ namespace todo_rest_api.Controllers
         }
 
 
-        [HttpPost("")]
+        [HttpPost("list")]
         public ActionResult<TodoList> CreateTodoList(TodoList todoItem)
         {
             service.CreateTodoList(todoItem);
@@ -59,45 +59,45 @@ namespace todo_rest_api.Controllers
             return service.GetAllTasks();
         }
 
-        
+
         [HttpGet("task")]
-        public ActionResult<Task> GetTaskById(int listId, int taskId)
+        public ActionResult<Task> GetTaskById(int taskId)
         {
-            return service.GetTaskById(listId, taskId);
+            return service.GetTaskById(taskId);
         }
 
 
-        [HttpPost("task")]
+        [HttpPost("listId")]
         public ActionResult<Task> PostTask(int listId, Task task)
         {
             service.CreateTaskInList(listId, task);
 
-            return Created($"api/task/{listId}/{task.Id}", task);
+            return Ok();
         }
 
 
         [HttpPut("task")]
-        public IActionResult PutTask(int listId, int taskId, Task task)
+        public IActionResult PutTask(int taskId, Task task)
         {
-            service.PutTaskById(listId, taskId, task);
+            service.PutTaskById(taskId, task);
 
             return Ok();
         }
 
 
         [HttpPatch("task")]
-        public IActionResult PatchTask(int listId, int taskId, Task task)
+        public IActionResult PatchTask(int taskId, Task task)
         {
-            service.PatchTask(listId, taskId, task);
+            service.PatchTask(taskId, task);
 
             return Ok();
         }
 
 
         [HttpDelete("task")]
-        public ActionResult<Task> DeleteTaskById(int listId, int taskId)
+        public ActionResult<Task> DeleteTaskById(int taskId)
         {
-            service.DeleteTask(listId, taskId);
+            service.DeleteTask(taskId);
 
             return Ok();
         }

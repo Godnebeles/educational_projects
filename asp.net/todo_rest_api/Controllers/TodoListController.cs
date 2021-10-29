@@ -17,7 +17,7 @@ namespace todo_rest_api.Controllers
         }
 
 
-        [HttpGet("")]
+        [HttpGet]
         public ActionResult<IEnumerable<TodoList>> GetTodoItems(int listId)
         {
             return service.GetAllLists();
@@ -31,7 +31,7 @@ namespace todo_rest_api.Controllers
         }
 
 
-        [HttpPost("")]
+        [HttpPost]
         public ActionResult<TodoList> CreateTodoList(TodoList todoItem)
         {
             service.CreateTodoList(todoItem);

@@ -9,21 +9,22 @@ namespace todo_rest_api
         private List<TodoList> todoList = new List<TodoList>
             {
                 new TodoList() {
-                    Id = 1, Title = "First standart data", LastTaskId = 1,
+                    Id = 1, Title = "First standart data",
                     Tasks = new List<Task>()
                         {
                            new Task() {Id = 1, Title = "Task 1, List 1"},
                         }},
                 new TodoList() {
-                    Id = 2, Title = "Second standart data", LastTaskId = 1,
+                    Id = 2, Title = "Second standart data",
                     Tasks = new List<Task>()
                         {
-                           new Task() {Id = 1, Title = "Task 1, List 2"},
+                           new Task() {Id = 2, Title = "Task 1, List 2"},
                         }}
             };
 
 
-        private int lastId = 2;
+        private int lastListId = 2;
+        private int lastTaskId = 2;
 
 
         // main to do list
@@ -41,7 +42,7 @@ namespace todo_rest_api
 
         public TodoList CreateTodoList(TodoList item)
         {
-            item.Id = ++lastId;
+            item.Id = ++lastListId;
             todoList.Add(item);
             return item;
         }
@@ -60,11 +61,11 @@ namespace todo_rest_api
 
 
         // For tasks
-        public Task GetTaskById(int listId, int id)
+        public Task GetTaskById(int taskId)
         {
-            List<Task> tasks = GetTodoListById(listId).Tasks;
+            Task task = FindTask(taskId);
 
-            return tasks.Find(x => x.Id == id);
+            return task;
         }
 
 
@@ -83,6 +84,7 @@ namespace todo_rest_api
             return tasks;
         }
 
+
         public List<Task> GetTasksByListId(int listId)
         {
             return todoList.Find(x => x.Id == listId).Tasks;
@@ -92,19 +94,20 @@ namespace todo_rest_api
         public void CreateTaskInList(int listId, Task item)
         {
             var listForAddTask = GetTodoListById(listId);
-            item.Id = ++listForAddTask.LastTaskId;
+            item.Id = ++lastTaskId;
             listForAddTask.Tasks.Add(item);
         }
 
-        public void PutTaskById(int listId, int id, Task task)
+
+        public void PutTaskById(int taskId, Task task)
         {
-            var currentTodoList = GetTodoListById(listId);
+            var currentTodoList = FindTodoByTaskId(taskId);
 
             for (int j = 0; j < currentTodoList.Tasks.Count; ++j)
             {
-                if (currentTodoList.Tasks[j].Id == id)
+                if (currentTodoList.Tasks[j].Id == taskId)
                 {
-                    task.Id = id;
+                    task.Id = taskId;
                     currentTodoList.Tasks[j] = task;
                     break;
                 }
@@ -112,9 +115,9 @@ namespace todo_rest_api
         }
 
 
-        public void PatchTask(int listId, int taskId, Task task)
+        public void PatchTask(int taskId, Task task)
         {
-            var editableTask = GetTaskById(listId, taskId);
+            var editableTask = FindTask(taskId);
 
             editableTask.Title = task?.Title;
             editableTask.DueDate = task?.DueDate;
@@ -123,12 +126,43 @@ namespace todo_rest_api
         }
   
         
-        public void DeleteTask(int listId, int id)
+        public void DeleteTask(int taskId)
         {
-            var removeTask = GetTaskById(listId, id);
+            var editListTask = FindTodoByTaskId(taskId).Tasks;
 
-            GetTodoListById(listId).Tasks.Remove(removeTask);
+            var removableTask = editListTask.Find(x => x.Id == taskId);
+
+            editListTask.Remove(removableTask);
         }
+
+
+        public TodoList FindTodoByTaskId(int taskId)
+        {
+            foreach(var todo in todoList)
+            {
+                foreach(var task in todo.Tasks)
+                {
+                    if (task.Id == taskId)
+                        return todo;
+                }
+            }
+            return null;
+        }
+
+
+        public Task FindTask(int taskId)
+        {
+            foreach(var todo in todoList)
+            {
+                foreach(var task in todo.Tasks)
+                {
+                    if (task.Id == taskId)
+                        return task;
+                }
+            }
+            return null;
+        }
+
 
     }
 }

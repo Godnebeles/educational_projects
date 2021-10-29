@@ -12,23 +12,25 @@ namespace todo_rest_api.Controllers
     public class TaskController : ControllerBase
     {
         private TasksListService service;
+
+
         public TaskController(TasksListService service)
         {
             this.service = service;
         }
 
 
-        [HttpGet("")]
+        [HttpGet]
         public ActionResult<IEnumerable<Task>> GetTasks()
         {
             return service.GetAllTasks();
         }
 
 
-        [HttpGet("{listId}/{id}")]
-        public ActionResult<Task> GetTaskById(int listId, int id)
+        [HttpGet("{taskId}")]
+        public ActionResult<Task> GetTaskById(int taskId)
         {
-            return service.GetTaskById(listId, id);
+            return service.GetTaskById(taskId);
         }
 
 
@@ -41,28 +43,28 @@ namespace todo_rest_api.Controllers
         }
 
 
-        [HttpPut("{listId}/{id}")]
-        public IActionResult PutTask(int listid, int id, Task task)
+        [HttpPut("{taskId}")]
+        public IActionResult PutTask(int taskId, Task task)
         {
-            service.PutTaskById(listid, id, task);
+            service.PutTaskById(taskId, task);
 
             return Ok();
         }
 
 
-        [HttpPatch("{listId}/{id}")]
-        public IActionResult PatchTask(int listId, int id, Task task)
+        [HttpPatch("{taskId}")]
+        public IActionResult PatchTask(int taskId, Task task)
         {
-            service.PatchTask(listId, id, task);
+            service.PatchTask(taskId, task);
 
             return Ok();
         }
 
 
-        [HttpDelete("{listId}/{id}")]
-        public ActionResult<Task> DeleteTaskById(int listId, int id)
+        [HttpDelete("{taskId}")]
+        public ActionResult<Task> DeleteTaskById(int taskId)
         {
-            service.DeleteTask(listId, id);
+            service.DeleteTask(taskId);
 
             return Ok();
         }
