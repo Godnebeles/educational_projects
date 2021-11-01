@@ -55,7 +55,7 @@ namespace todo_item
 
         private static async Task CreateTodoItemAsync(NpgsqlConnection conn)
         {
-     
+
 
             await using (var cmd = new NpgsqlCommand("INSERT INTO todo_item (title, \"desc\", done, due_date) VALUES " +
                                                      "(@title, @desc, @done, @due_date)", conn))
@@ -122,7 +122,17 @@ namespace todo_item
                 System.Console.WriteLine("Your data:");
                 string answer = Console.ReadLine();
 
-                cmd.Parameters.AddWithValue("data", currentField == "dd" ? DateTime.Parse(answer) : answer);
+                if (currentField == "dd")
+                    cmd.Parameters.AddWithValue("data", DateTime.Parse(answer));
+                else if (currentField == "dn")
+                {
+                    bool newAns = bool.Parse(answer);
+                    cmd.Parameters.AddWithValue("data", newAns);
+                }
+
+                else
+                    cmd.Parameters.AddWithValue("data", answer);
+
                 await cmd.ExecuteNonQueryAsync();
             }
 
