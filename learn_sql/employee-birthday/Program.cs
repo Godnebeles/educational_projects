@@ -53,14 +53,11 @@ namespace employee_birthday
                     employees.Add(new Employee(reader.GetString(0), DateTime.Parse(reader.GetDate(1).ToString())));
                 }
 
-
             return employees;
         }
 
-        public static Dictionary<int, List<Employee>> GetSortedMonthesEmptyDict(List<Employee> employees, int monthCount)
-        {
-
-            employees.Sort();
+        public static Dictionary<int, List<Employee>> GetSortedMonthesEmptyDict(int monthCount)
+        {  
             Dictionary<int, List<Employee>> dictionarySetMonthes = new Dictionary<int, List<Employee>>();
 
             DateTime currentMonth = DateTime.Now;
@@ -74,7 +71,7 @@ namespace employee_birthday
 
         public static Dictionary<int, List<Employee>> GetEmployeesMonthes(List<Employee> employees, int monthCount)
         {
-            Dictionary<int, List<Employee>> sortedEmployes = GetSortedMonthesEmptyDict(employees, monthCount);
+            Dictionary<int, List<Employee>> sortedEmployes = GetSortedMonthesEmptyDict(monthCount);
 
             foreach (var employee in employees)
             {

@@ -10,6 +10,7 @@ namespace todo_item
     class Program
     {
         static string connString = "Host=127.0.0.1;Username=todolist_app;Password=secret;Database=todolist";
+        
         static void Main(string[] args)
         {
             MainAsync().Wait();
@@ -18,11 +19,9 @@ namespace todo_item
 
         static async Task MainAsync()
         {
-
-
-
             while (true)
             {
+                Console.Clear();
                 await using var conn = new NpgsqlConnection(connString);
                 await conn.OpenAsync();
 
@@ -47,7 +46,7 @@ namespace todo_item
                         await DeleteTodoItemAsync(conn, id);
                     }
                 }
-
+                conn.Close();
             }
 
         }
@@ -122,14 +121,13 @@ namespace todo_item
                 System.Console.WriteLine("Your data:");
                 string answer = Console.ReadLine();
 
-                if (currentField == "dd")
+                if (currentField == "due_date")
                     cmd.Parameters.AddWithValue("data", DateTime.Parse(answer));
-                else if (currentField == "dn")
+                else if (currentField == "done")
                 {
-                    bool newAns = bool.Parse(answer);
-                    cmd.Parameters.AddWithValue("data", newAns);
+                    bool newFlag = Convert.ToBoolean(answer);
+                    cmd.Parameters.AddWithValue("data", newFlag);
                 }
-
                 else
                     cmd.Parameters.AddWithValue("data", answer);
 
