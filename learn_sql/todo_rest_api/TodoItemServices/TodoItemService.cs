@@ -78,12 +78,11 @@ namespace todo_rest_api
             // List<TodoItem> items = _context.TodoItems.ToList();
 
             // _context.TodoLists.GroupJoin
-            var result = _context.TodoItems.GroupJoin(_context.TodoLists, // второй набор
-                        u => u.TodoListId, // свойство-селектор объекта из первого набора
-                        c => c.Id, // свойство-селектор объекта из второго набора
-                        (u, c) => new Dashboard{ Title=u.Title}).ToList();
 
-                    
+            var result = from l in _context.TodoLists
+                         join c in _context.TodoItems on l.Id equals c.TodoListId into g
+                         select _context.TodoItems;
+
             return result;
         }      
 
