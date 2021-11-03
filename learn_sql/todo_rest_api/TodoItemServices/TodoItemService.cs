@@ -57,24 +57,36 @@ namespace todo_rest_api
 
         // DASHBOARD
 
-        public Dashboard GetDashboard()
+        public List<Dashboard> GetDashboard()
         {
-            // Dashboard dash = new Dashboard();
+            // SELECT COUNT(todo_items.done) FROM todo_lists 
+            // RIGHT OUTER JOIN todo_items on todo_items.todo_list_id=todo_lists.id
+            // WHERE todo_items.done='false' or todo_items.done=NULL;
 
-            // dash.CountOpenTasksToday = _context.TodoItems.Where(t => t.DueDate.Equals(DateTime.Today)).Count();
+            // Dashboard dashboard = new Dashboard();
 
-            // dash.TodoListOpen = _context.TodoLists;
+            // dashboard.CountOpenTasksToday = _context.TodoItems.Where(t => t.DueDate.Equals(DateTime.Today)).Count();
+            
+            // dashboard.TodoListOpen = new List<TodoListDto>();//_context.TodoLists.Include(x => new List<TodoItemDto>(x.TodoItems));
+            
+            // foreach (var todo in _context.TodoLists.Include(x => x.TodoItems))
+            // {
+            //     dashboard.TodoListOpen.Add(new TodoListDto(todo));
+            // }
 
-            Dashboard dashboard = new Dashboard();
+            // List<TodoList> lists = _context.TodoLists.Include(x => x.TodoItems).ToList();
+            // List<TodoItem> items = _context.TodoItems.ToList();
 
-            dashboard.CountOpenTasksToday = _context.TodoItems.Where(t => t.DueDate.Equals(DateTime.Today)).Count();
-            dashboard.TodoListOpen = new List<TodoListDto>();
-            foreach (var todo in _context.TodoLists.Include(x => x.TodoItems))
-            {
-                dashboard.TodoListOpen.Add(new TodoListDto(todo));
-            }
+            // _context.TodoLists.GroupJoin
+            var result = _context.TodoItems.GroupJoin(_context.TodoLists, // второй набор
+                        u => u.TodoListId, // свойство-селектор объекта из первого набора
+                        c => c.Id, // свойство-селектор объекта из второго набора
+                        (u, c) => new Dashboard{ Title=u.Title}).ToList();
 
-            return dashboard;
-        }
+                    
+            return result;
+        }      
+
+       
     }
 }

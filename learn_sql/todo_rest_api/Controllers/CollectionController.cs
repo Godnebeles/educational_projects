@@ -18,10 +18,10 @@ namespace todo_rest_api
             this.service = service;
         }
 
-        [HttpGet("today")]
-        public ActionResult<Dashboard> GetDashboard()
-        {
-            return service.GetDashboard();
-        }
+        // [HttpGet("today")]
+        // public ActionResult<Dashboard> GetDashboard()
+        // {
+        //     return service.GetDashboard();
+        // }
     }
 }

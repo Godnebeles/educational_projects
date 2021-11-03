@@ -11,6 +11,7 @@ namespace todo_rest_api
         public string Description { get; set; }
         public DateTime? DueDate { get; set; }
         public bool? Done { get; set; }
+        //public TodoList TodoList { get; set; }
 
         public TodoItem()
         {
@@ -23,7 +24,7 @@ namespace todo_rest_api
             this.Title = newTodoItemDto.Title;
             this.Description = newTodoItemDto.Description;
             this.DueDate = newTodoItemDto.DueDate;
-            this.Done = newTodoItemDto.Done; 
+            this.Done = newTodoItemDto.Done;
         }
     }
 }

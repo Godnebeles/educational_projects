@@ -19,7 +19,7 @@ namespace todo_rest_api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<Dashboard> GetDashboard()
+        public ActionResult<List<Dashboard>> GetDashboard()
         {
             return service.GetDashboard();
         }
