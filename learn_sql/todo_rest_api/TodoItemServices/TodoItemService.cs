@@ -79,6 +79,7 @@ namespace todo_rest_api
         // DASHBOARD
         public Dashboard GetDashboard()
         {
+
             // SELECT todo_lists.Id, todo_lists.title, COUNT(todo_items.done) FROM todo_lists
             // LEFT JOIN todo_items ON todo_items.todo_list_id = todo_lists.id
             // WHERE todo_items IS Null OR todo_items.done = 'false'
@@ -105,7 +106,5 @@ namespace todo_rest_api
         }
 
         // COLLECTION TODAY
-
-
     }
 }
