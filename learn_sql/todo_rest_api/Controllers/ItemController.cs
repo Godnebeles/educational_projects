@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace todo_rest_api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/items")]
     [ApiController]
     public class ItemController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace todo_rest_api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<TodoItem>> GetAllTodoItems()
+        public ActionResult<List<TodoItemDto>> GetAllTodoItems()
         {
             return service.GetAllItems();
         }

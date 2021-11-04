@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace todo_rest_api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/lists")]
     [ApiController]
     public class ListController : ControllerBase
     {
@@ -28,12 +28,6 @@ namespace todo_rest_api.Controllers
             return service.GetTodoListById(listId);
         }
 
-        [HttpGet("items")]
-        public ActionResult<List<TodoItem>> GetAllItems(int listId)
-        {
-            return service.GetTodoItemsByListId(listId);
-        }
-
         [HttpPost]
         public ActionResult AddTodoList(NewTodoListDto todoList)
         {
@@ -41,9 +35,6 @@ namespace todo_rest_api.Controllers
 
             return Ok();
         }
-
-        
-
-        
+  
     }
 }

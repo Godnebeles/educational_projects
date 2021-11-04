@@ -30,13 +30,10 @@ namespace todo_rest_api
             });
 
             services.AddScoped<TodoItemService>();
-            services.AddScoped<DashboardService>();
             services.AddDbContext<TodoListContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
                 .UseSnakeCaseNamingConvention()
             );
-
-            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

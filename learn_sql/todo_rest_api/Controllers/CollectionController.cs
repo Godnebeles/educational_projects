@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace todo_rest_api
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/today")]
     [ApiController]
     public class CollectionController
     {
@@ -18,10 +18,10 @@ namespace todo_rest_api
             this.service = service;
         }
 
-        // [HttpGet("today")]
-        // public ActionResult<Dashboard> GetDashboard()
-        // {
-        //     return service.GetDashboard();
-        // }
+        [HttpGet]
+        public ActionResult<List<TodoItemDto>> GetCollectionTodoItemsToday()
+        {
+            return service.GetCollectionTodoItemsToday();
+        }
     }
 }

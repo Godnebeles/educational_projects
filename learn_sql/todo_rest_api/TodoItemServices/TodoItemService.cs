@@ -29,14 +29,12 @@ namespace todo_rest_api
 
         public List<TodoListDto> GetAllLists()
         {
-            List<TodoListDto> listDto = new List<TodoListDto>();
+            var result = _context.TodoLists
+                        .Include(x => x.TodoItems)
+                        .Select(x => new TodoListDto(x))
+                        .ToList();
 
-            foreach (var todo in _context.TodoLists.Include(x => x.TodoItems))
-            {
-                listDto.Add(new TodoListDto(todo));
-            }
-
-            return listDto;
+            return result;
         }
 
         public TodoList GetTodoListById(int id)
@@ -44,49 +42,70 @@ namespace todo_rest_api
             return _context.TodoLists.Where(i => i.Id == id).Include(i => i.TodoItems).Single();
         }
 
-        public List<TodoItem> GetAllItems()
+        public List<TodoItemDto> GetAllItems()
+        {
+            return _context.TodoItems.Include(l => l.TodoList).Select(l => new TodoItemDto(l)).ToList();
+        }
+
+        public List<TodoItem> GetAllOpenTasks()
         {
             return _context.TodoItems.ToList<TodoItem>();
         }
 
-        public List<TodoItem> GetTodoItemsByListId(int id)
+        public List<TodoItemDto> GetAllTodoItemsByListId(int listId)
         {
-            return _context.TodoLists.Where(l => l.Id == id).Include(l => l.TodoItems).Single().TodoItems;
+            return _context.TodoItems
+                    .Include(l => l.TodoList)
+                    .Where(l => l.TodoListId == listId)
+                    .Select(l => new TodoItemDto(l)).ToList();
         }
 
+        public List<TodoItemDto> GetOpenTodoItemsByListId(int listId)
+        {
+            return _context.TodoItems
+                    .Include(l => l.TodoList)
+                    .Where(l => l.TodoListId == listId && l.Done == false)
+                    .Select(l => new TodoItemDto(l)).ToList();
+        }
+
+        public List<TodoItemDto> GetCollectionTodoItemsToday()
+        {
+            return _context.TodoItems
+                    .Include(l => l.TodoList)
+                    .Where(l => l.DueDate.Value.Date.Equals(DateTime.Today.Date))
+                    .Select(l => new TodoItemDto(l)).ToList();
+        }
 
         // DASHBOARD
-
-        public List<Dashboard> GetDashboard()
+        public Dashboard GetDashboard()
         {
-            // SELECT COUNT(todo_items.done) FROM todo_lists 
-            // RIGHT OUTER JOIN todo_items on todo_items.todo_list_id=todo_lists.id
-            // WHERE todo_items.done='false' or todo_items.done=NULL;
+            // SELECT todo_lists.Id, todo_lists.title, COUNT(todo_items.done) FROM todo_lists
+            // LEFT JOIN todo_items ON todo_items.todo_list_id = todo_lists.id
+            // WHERE todo_items IS Null OR todo_items.done = 'false'
+            // GROUP BY todo_lists.Id
+            // ORDER BY todo_lists.Id;
 
-            // Dashboard dashboard = new Dashboard();
+            var countOpenTasksToday = _context.TodoItems
+                                            .Where(t => t.DueDate.Value.Date
+                                            .Equals(DateTime.Today.Date) && t.Done == (false))
+                                            .Count();
 
-            // dashboard.CountOpenTasksToday = _context.TodoItems.Where(t => t.DueDate.Equals(DateTime.Today)).Count();
-            
-            // dashboard.TodoListOpen = new List<TodoListDto>();//_context.TodoLists.Include(x => new List<TodoItemDto>(x.TodoItems));
-            
-            // foreach (var todo in _context.TodoLists.Include(x => x.TodoItems))
-            // {
-            //     dashboard.TodoListOpen.Add(new TodoListDto(todo));
-            // }
+            var result = _context.TodoLists
+                        .Include(l => l.TodoItems)
+                        .Select(l => new TodoListDto()
+                        {
+                            Id = l.Id,
+                            Title = l.Title,
+                            CountOpenTasks = l.TodoItems.Where(t => t.Done.Equals(false)).Count()
+                        })
+                        .OrderBy(l => l.Id)
+                        .ToList();
 
-            // List<TodoList> lists = _context.TodoLists.Include(x => x.TodoItems).ToList();
-            // List<TodoItem> items = _context.TodoItems.ToList();
+            return new Dashboard() { CountTasksToday = countOpenTasksToday, TodoLists = result };
+        }
 
-            // _context.TodoLists.GroupJoin
-            var result = _context.TodoItems.GroupJoin(_context.TodoLists, // второй набор
-                        u => u.TodoListId, // свойство-селектор объекта из первого набора
-                        c => c.Id, // свойство-селектор объекта из второго набора
-                        (u, c) => new Dashboard{ Title=u.Title}).ToList();
+        // COLLECTION TODAY
 
-                    
-            return result;
-        }      
 
-       
     }
 }

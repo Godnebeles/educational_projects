@@ -76,17 +76,19 @@ namespace todo_rest_api.Migrations
 
             modelBuilder.Entity("todo_rest_api.TodoItem", b =>
                 {
-                    b.HasOne("todo_rest_api.TodoList", null)
-                        .WithMany("Tasks")
+                    b.HasOne("todo_rest_api.TodoList", "TodoList")
+                        .WithMany("TodoItems")
                         .HasForeignKey("TodoListId")
                         .HasConstraintName("fk_todo_items_todo_lists_todo_list_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("TodoList");
                 });
 
             modelBuilder.Entity("todo_rest_api.TodoList", b =>
                 {
-                    b.Navigation("Tasks");
+                    b.Navigation("TodoItems");
                 });
 #pragma warning restore 612, 618
         }
