@@ -18,8 +18,14 @@ namespace todo_rest_api.Controllers
             this.service = service;
         }
 
+        // [HttpGet]
+        // public ActionResult<Dashboard> GetDashboard()
+        // {
+        //     return service.GetDashboard();
+        // }
+
         [HttpGet]
-        public ActionResult<Dashboard> GetDashboard()
+        public Dashboard GetActionResult()
         {
             return service.GetDashboard();
         }
