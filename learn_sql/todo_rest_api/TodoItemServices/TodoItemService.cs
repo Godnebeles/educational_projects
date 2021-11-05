@@ -16,10 +16,12 @@ namespace todo_rest_api
             _context = context;
         }
 
-        public void AddTodoItem(NewTodoItemDto newTodoItemDto)
+        public TodoItem AddTodoItem(NewTodoItemDto newTodoItemDto)
         {
-            _context.TodoItems.Add(new TodoItem(newTodoItemDto));
+            TodoItem todoItem = new TodoItem(newTodoItemDto);
+            _context.TodoItems.Add(todoItem);
             _context.SaveChanges();
+            return todoItem;
         }
 
         public void AddTodoList(NewTodoListDto newTodoListDto)
@@ -71,72 +73,74 @@ namespace todo_rest_api
 
 
         // DASHBOARD SQL
-        public Dashboard GetDashboard()
-        {
-            string query = "SELECT todo_lists.Id, todo_lists.title, COUNT(todo_items.done) FROM todo_lists " +
-                            "LEFT JOIN todo_items ON todo_items.todo_list_id = todo_lists.id " +
-                            "WHERE todo_items IS Null OR todo_items.done = 'false' " +
-                            "GROUP BY todo_lists.Id " +
-                            "ORDER BY todo_lists.Id ";
+        // public Dashboard GetDashboard()
+        // {
+        //     string query = "SELECT todo_lists.Id, todo_lists.title, COUNT(todo_items.done) FROM todo_lists " +
+        //                     "LEFT JOIN todo_items ON todo_items.todo_list_id = todo_lists.id " +
+        //                     "WHERE todo_items IS Null OR todo_items.done = 'false' " +
+        //                     "GROUP BY todo_lists.Id " +
+        //                     "ORDER BY todo_lists.Id ";
 
-            Dashboard dashboard = new Dashboard();
-            dashboard.CountTasksToday = _context.TodoItems
-                                        .Where(t => t.DueDate.Value.Date
-                                        .Equals(DateTime.Today.Date) && t.Done == (false))
-                                        .Count();  
+        //     Dashboard dashboard = new Dashboard();
+        //     dashboard.TodoLists = new List<TodoListDto>();
+        //     dashboard.CountTasksToday = _context.TodoItems
+        //                                 .Where(t => t.DueDate.Value.Date
+        //                                 .Equals(DateTime.Today.Date) && t.Done == (false))
+        //                                 .Count();
 
-            dashboard.TodoLists = new List<TodoListDto>();
-            using var conn = new NpgsqlConnection(_context.Database.GetConnectionString());
-            conn.Open();
+        //     using var conn = new NpgsqlConnection(_context.Database.GetConnectionString());
+        //     conn.Open();
+            
+        //     using (var cmd = new NpgsqlCommand(query, conn))
+        //     using (var reader = cmd.ExecuteReader())
+        //         while (reader.Read())
+        //         {
+        //             TodoListDto tempObj = new TodoListDto();
 
-            // Retrieve all todo item rows
-            using (var cmd = new NpgsqlCommand(query, conn))
-            {
-                using (var reader = cmd.ExecuteReader())
-                    while (reader.Read())
-                    {
-                        TodoListDto tempObj = new TodoListDto();
-                        tempObj.Id = reader.GetInt32(0);
-                        tempObj.Title = reader.GetString(1);
-                        tempObj.CountOpenTasks = reader.GetInt32(2);
-                        dashboard.TodoLists.Add(tempObj);
-                    }
-            }
-            conn.Close();
+        //             tempObj.Id = reader.GetInt32(0);
+        //             tempObj.Title = reader.GetString(1);
+        //             tempObj.CountOpenTasks = reader.GetInt32(2);
 
-            return dashboard;
-        }
+        //             dashboard.TodoLists.Add(tempObj);
+        //         }
+
+
+        //     conn.Close();
+
+        //     return dashboard;
+        // }
 
         // DASHBOARD LINQ
 
-        // public Dashboard GetDashboard()
-        // {
-        //     var countOpenTasksToday = _context.TodoItems
-        //                                     .Where(t => t.DueDate.Value.Date
-        //                                     .Equals(DateTime.Today.Date) && t.Done == (false))
-        //                                     .Count();
+        public Dashboard GetDashboard()
+        {
+            var countOpenTasksToday = _context.TodoItems
+                                            .Where(t => t.DueDate.Value.Date
+                                            .Equals(DateTime.Today.Date) && t.Done == (false))
+                                            .Count();
 
-        //     var result = _context.TodoLists
-        //                 .Include(l => l.TodoItems)
-        //                 .Select(l => new TodoListDto()
-        //                 {
-        //                     Id = l.Id,
-        //                     Title = l.Title,
-        //                     CountOpenTasks = l.TodoItems.Where(t => t.Done.Equals(false)).Count()
-        //                 })
-        //                 .OrderBy(l => l.Id)
-        //                 .ToList();
+            var result = _context.TodoLists
+                        .Include(l => l.TodoItems)
+                        .Select(l => new TodoListDto()
+                        {
+                            Id = l.Id,
+                            Title = l.Title,
+                            CountOpenTasks = l.TodoItems.Where(t => t.Done.Equals(false)).Count()
+                        })
+                        .OrderBy(l => l.Id)
+                        .ToList();
 
-        //     return new Dashboard() { CountTasksToday = countOpenTasksToday, TodoLists = result };
-        // }
+            return new Dashboard() { CountTasksToday = countOpenTasksToday, TodoLists = result };
+        }
 
         // COLLECTION TODAY
-        public List<TodoItemDto> GetCollectionTodoItemsToday()
+        public List<CollectionTodayTodoItem> GetCollectionTodoItemsToday()
         {
             return _context.TodoItems
                     .Include(l => l.TodoList)
-                    .Where(l => l.DueDate.Value.Date.Equals(DateTime.Today.Date))
-                    .Select(l => new TodoItemDto(l)).ToList();
+                    .Where(l => l.DueDate.HasValue && l.DueDate.Value.Date.Equals(DateTime.Today.Date))
+                    // .Select(l => new CollectionTodayTodoItem(l)).ToList();
+                    .Select(CollectionTodayTodoItem.FromEntity).ToList();
         }
     }
 }

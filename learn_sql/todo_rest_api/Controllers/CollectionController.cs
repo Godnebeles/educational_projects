@@ -19,7 +19,7 @@ namespace todo_rest_api
         }
 
         [HttpGet]
-        public ActionResult<List<TodoItemDto>> GetCollectionTodoItemsToday()
+        public ActionResult<List<CollectionTodayTodoItem>> GetCollectionTodoItemsToday()
         {
             return service.GetCollectionTodoItemsToday();
         }

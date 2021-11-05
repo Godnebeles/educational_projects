@@ -25,12 +25,18 @@ namespace todo_rest_api.Controllers
             return service.GetAllItems();
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<List<TodoItemDto>> GetTodoItem()
+        {
+            return null;
+        }
+
         [HttpPost]
         public ActionResult AddTodoItem(NewTodoItemDto todoItem)
         {
-            service.AddTodoItem(todoItem);
+            TodoItem createdTodoItem = service.AddTodoItem(todoItem);
 
-            return Ok();
+            return CreatedAtAction("GetTodoItem", new {id = createdTodoItem.Id}, createdTodoItem);
         }
     }
 }
