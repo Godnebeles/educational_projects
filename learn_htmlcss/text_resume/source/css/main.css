@@ -1,0 +1,62 @@
+body{
+    background-color: gray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 0;
+    border: none;
+}
+
+.row {
+    background-color: red;
+    margin: 0 auto;
+    width: 95%;
+    margin-top: 1%;
+}
+
+.row > div {
+    float:left;
+    word-wrap: break-word;
+}
+
+.content {
+    margin: 20px;
+}
+
+.person {  
+    width: 30%;
+    background-color: black;
+    color: white;
+}
+
+.experience {
+    width: 70%;
+    background-color: white;
+}
+
+.expirience-title {
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.experience-block {
+    width: 70%;
+    background-color: white;
+}
+
+.param-name {
+    
+}
+
+.param-value {
+    color: silver;
+}
+
+.header {  
+    background-color: silver;
+    color:  black;
+}
